@@ -21,3 +21,17 @@ html, body {
   font-size: 12px;
   background-color: var(--light-grayish-cyan);
 }
+
+button {
+  font-family: 'Space Mono', monospace;
+  border: none;
+  margin: 5px;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  transition-duration: 0.4s;
+  width: 30%;
+  cursor: pointer;
+  font-size: large;
+}

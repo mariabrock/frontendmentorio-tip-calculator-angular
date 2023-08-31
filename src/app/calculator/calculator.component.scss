@@ -1,0 +1,74 @@
+
+.bill-container {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  width: 100%;
+}
+
+.select-container {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  align-self: center;
+  width: 100%;
+}
+
+.customers-container {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: stretch;
+}
+
+.btn-tip {
+  background-color: var(--very-dark-cyan);
+  color: var(--white);
+}
+
+.btn-tip:hover {
+  background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+}
+
+#custom {
+  background-color: var(--very-light-grayish-cyan);
+  color: var(--very-dark-cyan);
+}
+
+#user, #dollar {
+  padding: 10px;
+  background-color: var(--very-light-grayish-cyan);
+  color:  var(--grayish-cyan);
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  font-size: medium;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+
+input {
+  padding: 10px;
+  background-color: var(--very-light-grayish-cyan);
+  border: 0;
+  border-radius: 5px;
+  width: 85%;
+}
+
+h2 {
+  margin: 0;
+}
+
+.header1 {
+  color: var(--dark-grayish-cyan);
+  margin: .5rem;
+  font-size: medium;
+}

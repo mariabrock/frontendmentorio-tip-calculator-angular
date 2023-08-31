@@ -1,86 +1,20 @@
-
 <div class="container">
-  <img src="../assets/logo.svg" alt="app logo" />
+  <img src="./assets/logo.svg" alt="app logo" />
 
   <div class="card">
 
-    <div class="bill-container">
-      <h2 class="header1">Bill</h2>
+    <app-calculator></app-calculator>
+    <app-results></app-results>
 
-      <div class="input-container">
-        <i class="fa-solid fa-dollar-sign" id="dollar"></i>
-        <input onkeyup="calculateBill()"
-         type="number"
-         inputmode="numeric"
-         id="total-bill"
-         name="total-bill"
-         placeholder="0"
-         required />
-      </div>
-    </div>
-
-    <div class="select-container">
-      <h2 class="header1">Select Tip %</h2>
-      <div class="button-container" id="tip-amounts" onclick="">
-        <button class="button btn-tip" id="five">5%</button>
-        <button class="button btn-tip" id="ten">10%</button>
-        <button class="button btn-tip" id="fifteen">15%</button>
-        <button class="button btn-tip" id="twenty-five">25%</button>
-        <button class="button btn-tip" id="fifty">50% </button>
-        <!--             <button class="button custom" id="custom">Custom</button>-->
-        <input
-          autocomplete="off"
-          class="btn-tip input--custom pointer"
-          type="number"
-          inputmode="numeric"
-          min="1"
-          max="10000"
-          id="custom"
-          placeholder="Custom"
-        />
-      </div>
-    </div>
-
-    <div class="customers-container">
-      <h2 class="header1">Number of People</h2>
-
-      <div class="input-container">
-        <i class="fa-solid fa-user" id="user"></i>
-        <input onkeyup="calculatePeople()"
-           type="number"
-           inputmode="numeric"
-           min="1"
-           max="100"
-           id="people-num"
-           name="people-num"
-           placeholder="0"
-           required />
-      </div>
-    </div>
-
-    <div class="total-container">
-      <div class="total-text">
-        <h2 class="header2">Tip Amount</h2>
-        <p class="subtext">/ person</p>
-      </div>
-      <div class="amount">$0.00</div>
-      <div class="total-text">
-        <h2 class="header2">Total</h2>
-        <p class="subtext">/ person</p>
-      </div>
-      <div class="amount">$0.00</div>
-
-      <button class="button btn-reset" id="reset" disabled>RESET</button>
-    </div>
   </div>
-
 </div>
 
 <div class="attribution">
   Challenge by
   <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-  >Frontend Mentor</a>. Coded by <a href="#">Maria Brock</a>.
+  >Frontend Mentor</a>. Coded by <a href="https://github.com/mariabrock">Maria Brock</a>.
 </div>
+
 
 <!-- https://www.freecodecamp.org/news/build-and-validate-beautiful-forms-with-vanilla-html-css-js/ -->
 
