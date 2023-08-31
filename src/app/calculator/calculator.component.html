@@ -1,5 +1,5 @@
 
-<form action="">
+<form [formGroup]="tipForm">
   <div class="bill-container">
     <h2 class="header1">Bill</h2>
 
@@ -11,8 +11,12 @@
              id="total-bill"
              name="total-bill"
              placeholder="0"
-             formControlName="total-bill"
+             formControlName="totalBill"
+             [(ngModel)]="totalBill"
              required />
+      <div *ngIf="totalBill.invalid && (totalBill.dirty || totalBill.touched)">
+        Total is required.
+      </div>
     </div>
   </div>
 
@@ -28,12 +32,12 @@
       <input
         autocomplete="off"
         class="btn-tip input--custom pointer"
-        type="number"
-        inputmode="numeric"
-        min="1"
+        type="text"
+        min="0"
         max="10000"
         id="custom"
         formControlName="custom"
+        [(ngModel)]="custom"
         placeholder="Custom"
       />
     </div>
@@ -52,6 +56,7 @@
              id="people-num"
              name="people-num"
              formControlName="people-num"
+             [(ngModel)]="numOfPeople"
              placeholder="0"
              required />
     </div>

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup } from "@angular/forms";
+import { Component, Input } from '@angular/core';
+import { FormGroup } from "@angular/forms";
 
 @Component({
   selector: 'app-results',
@@ -8,16 +8,10 @@ import { FormControl, FormGroup } from "@angular/forms";
 })
 export class ResultsComponent {
 
+  @Input('total-bill') totalBill: number;
+  @Input('custom') customTip: number;
+  @Input('people-num') peopleToSplit: number;
+
   tipForm: FormGroup;
-
-  private initForm() {
-    let totalBill = '';
-    let customTip = '';
-    let peopleToSplit = '';
-
-    this.tipForm = new FormGroup({
-      'total-bill': new FormControl()
-    })
-  }
 
 }

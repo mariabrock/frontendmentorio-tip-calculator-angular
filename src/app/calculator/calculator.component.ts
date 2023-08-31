@@ -1,21 +1,37 @@
-import { Component, Input } from '@angular/core';
-import { FormControl, FormGroup } from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.scss']
 })
-export class CalculatorComponent {
+export class CalculatorComponent implements OnInit {
+  totalBill: number;
+  customTip: number;
+  numOfPeople: number;
+  tipForm: FormGroup;
+  invalid: true;
 
-  // @Input('total-bill') totalBill: number;
-  // @Input('custom') customTip: number;
-  // @Input('people-num') peopleToSplit: number;
+  constructor(private _formBuilder: FormBuilder) { }
 
-  calculateBill() {
-
+  ngOnInit(): void {
+    this.initForm();
   }
 
+  private initForm() {
+    this.tipForm = new FormGroup({
+      'totalBill': new FormControl('', Validators.required),
+      'custom': new FormControl('', Validators.required),
+      'numOfPeople': new FormControl('', Validators.required),
+    });
+  }
+
+  calculateBill() {
+    console.log(this.totalBill);
+    console.log(this.customTip);
+    console.log(this.numOfPeople);
+  }
 
   calculatePeople() {
 
