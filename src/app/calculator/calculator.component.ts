@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
@@ -7,35 +7,39 @@ import { FormControl, FormGroup, FormBuilder, Validators } from "@angular/forms"
   styleUrls: ['./calculator.component.scss']
 })
 export class CalculatorComponent implements OnInit {
-  totalBill: number;
-  customTip: number;
-  numOfPeople: number;
+  // totalBill: number;
+  // customTip: number;
+  // numOfPeople: number;
   tipForm: FormGroup;
-  invalid: true;
+  numberRegEx = /\-?\d*\.?\d{1,2}/;
+  active: boolean = false;
+
+  @Input('total-bill') totalBill: number;
+  @Input('custom') customTip: number;
+  @Input('people-num') numOfPeople: number;
 
   constructor(private _formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.initForm();
-  }
-
-  private initForm() {
     this.tipForm = new FormGroup({
-      'totalBill': new FormControl('', Validators.required),
-      'custom': new FormControl('', Validators.required),
-      'numOfPeople': new FormControl('', Validators.required),
+      'totalBill': new FormControl('value', [Validators.required, Validators.pattern(this.numberRegEx)]),
+      'customTip': new FormControl('value', [Validators.required]),
+      'numOfPeople': new FormControl('value', [Validators.required]),
     });
   }
 
   calculateBill() {
     console.log(this.totalBill);
-    console.log(this.customTip);
-    console.log(this.numOfPeople);
   }
 
   calculatePeople() {
-
+    console.log(this.numOfPeople);
   }
+
+  calculateTip(customTip: number) {
+    console.log(this.customTip);
+  }
+
 
 
 // to do:

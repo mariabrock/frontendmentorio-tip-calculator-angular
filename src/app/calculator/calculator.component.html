@@ -5,41 +5,43 @@
 
     <div class="input-container form-group">
       <i class="fa-solid fa-dollar-sign" id="dollar"></i>
-      <input onkeyup="calculateBill()"
-             type="number"
-             inputmode="numeric"
+      <input (keydown)="calculateBill()"
+             type="text"
              id="total-bill"
              name="total-bill"
              placeholder="0"
              formControlName="totalBill"
              [(ngModel)]="totalBill"
              required />
-      <div *ngIf="totalBill.invalid && (totalBill.dirty || totalBill.touched)">
-        Total is required.
-      </div>
+    </div>
+    <div *ngIf="!tipForm.controls['totalBill'].valid && tipForm.controls['totalBill'].touched"
+         class="alert">
+      Total is required.
     </div>
   </div>
 
   <div class="select-container form-group">
     <h2 class="header1">Select Tip %</h2>
-    <div class="button-container" id="tip-amounts" onclick="">
-      <button class="button btn-tip" id="five">5%</button>
+    <div class="button-container" id="tip-amounts">
+      <button class="button btn-tip" id="five" [ngClass]="{active: active === true}" (onClick)="calculateTip(customTip)">5%</button>
       <button class="button btn-tip" id="ten">10%</button>
       <button class="button btn-tip" id="fifteen">15%</button>
       <button class="button btn-tip" id="twenty-five">25%</button>
       <button class="button btn-tip" id="fifty">50% </button>
-      <!--             <button class="button custom" id="custom">Custom</button>-->
-      <input
+      <input (keydown)="calculateTip(customTip)"
         autocomplete="off"
         class="btn-tip input--custom pointer"
         type="text"
-        min="0"
-        max="10000"
         id="custom"
-        formControlName="custom"
-        [(ngModel)]="custom"
+        name="custom"
+        formControlName="customTip"
+        [(ngModel)]="customTip"
         placeholder="Custom"
       />
+    </div>
+    <div *ngIf="!tipForm.controls['customTip'].valid && tipForm.controls['customTip'].touched"
+         class="alert">
+      Please enter a number not provided.
     </div>
   </div>
 
@@ -48,17 +50,19 @@
 
     <div class="input-container form-group">
       <i class="fa-solid fa-user" id="user"></i>
-      <input onkeyup="calculatePeople()"
-             type="number"
+      <input (keydown)="calculatePeople()"
+             type="text"
              inputmode="numeric"
-             min="1"
-             max="100"
              id="people-num"
              name="people-num"
-             formControlName="people-num"
+             formControlName="numOfPeople"
              [(ngModel)]="numOfPeople"
              placeholder="0"
              required />
+    </div>
+    <div *ngIf="!tipForm.controls['numOfPeople'].valid && tipForm.controls['numOfPeople'].touched"
+         class="alert">
+      Please provide the number of people.
     </div>
   </div>
 </form>
