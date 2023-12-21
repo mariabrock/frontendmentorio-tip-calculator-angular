@@ -67,14 +67,22 @@
 }
 
 input {
-  padding: 10px;
-  background-color: var(--very-light-grayish-cyan);
-  border: 0;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  width: 85%;
+  //padding: 10px;
+//  border: 0;
+//  border-top-right-radius: 5px;
+//  border-bottom-right-radius: 5px;
+//  width: 85%;
   text-align: right;
-  font-size: large;
+
+  //font-size: large;
+}
+
+
+//.mat-mdc-form-field-focus-overlay
+
+.mat-mdc-form-field {
+  background-color: var(--very-light-grayish-cyan);
+  color: var(--very-dark-cyan);
 }
 
 h2 {

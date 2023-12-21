@@ -3,6 +3,11 @@
   <div class="bill-container">
     <h2 class="header1">Bill</h2>
 
+    <mat-form-field class="total-input" appearance="fill">
+      <span matPrefix><i class="fa-solid fa-dollar-sign fa-xl"></i></span>
+      <input type="number" matInput placeholder="0">
+    </mat-form-field>
+
     <div class="input-container form-group">
       <i class="fa-solid fa-dollar-sign" id="dollar"></i>
       <input [value]="totalBill.value"
