@@ -5,14 +5,16 @@
 
     <div class="input-container form-group">
       <i class="fa-solid fa-dollar-sign" id="dollar"></i>
-      <input (keydown)="calculateBill()"
-             type="text"
-             id="total-bill"
-             name="total-bill"
-             placeholder="0"
-             formControlName="totalBill"
-             [(ngModel)]="totalBill"
-             required />
+      <input [value]="totalBill.value"
+        (input)="totalBill.value=calculateBill(totalBill)"
+        type="number"
+        id="total-bill"
+        name="totalBill"
+        class="form-control"
+        placeholder="0"
+        formControlName="totalBill"
+        pattern="/\-?\d*\.?\d{1,2}/"
+        required />
     </div>
     <div *ngIf="!tipForm.controls['totalBill'].valid && tipForm.controls['totalBill'].touched"
          class="alert">
@@ -23,19 +25,19 @@
   <div class="select-container form-group">
     <h2 class="header1">Select Tip %</h2>
     <div class="button-container" id="tip-amounts">
-      <button class="button btn-tip" id="five" [ngClass]="{active: active === true}" (onClick)="calculateTip(customTip)">5%</button>
-      <button class="button btn-tip" id="ten">10%</button>
-      <button class="button btn-tip" id="fifteen">15%</button>
-      <button class="button btn-tip" id="twenty-five">25%</button>
-      <button class="button btn-tip" id="fifty">50% </button>
-      <input (keydown)="calculateTip(customTip)"
+      <button mat-raised-button color="accent" class="button btn-tip" id="five" [ngClass]="{active}" (click)="calculateTip(customTip)">5%</button>
+      <button mat-raised-button color="accent"  class="button btn-tip" id="ten">10%</button>
+      <button mat-raised-button color="accent" class="button btn-tip" id="fifteen">15%</button>
+      <button mat-raised-button color="accent" class="button btn-tip" id="twenty-five">25%</button>
+      <button mat-raised-button color="accent" class="button btn-tip" id="fifty">50%</button>
+      <input [value]="customTip.valueOf"
+        (input)="customTip.valueOf=calculatePeople(numOfPeople)"
         autocomplete="off"
-        class="btn-tip input--custom pointer"
-        type="text"
-        id="custom"
-        name="custom"
+        class="btn-tip input--custom"
+        type="number"
         formControlName="customTip"
-        [(ngModel)]="customTip"
+        name="customTip"
+        pattern="/\-?\d*\.?\d{1,2}/"
         placeholder="Custom"
       />
     </div>
@@ -50,13 +52,13 @@
 
     <div class="input-container form-group">
       <i class="fa-solid fa-user" id="user"></i>
-      <input (keydown)="calculatePeople()"
-             type="text"
+      <input [value]="numOfPeople.value"
+             (input)="numOfPeople.value=calculateTip(customTip)"
+             type="number"
              inputmode="numeric"
-             id="people-num"
-             name="people-num"
+             name="numOfPeople"
              formControlName="numOfPeople"
-             [(ngModel)]="numOfPeople"
+             pattern="/\-?\d*\.?\d{1,2}/"
              placeholder="0"
              required />
     </div>
@@ -66,6 +68,3 @@
     </div>
   </div>
 </form>
-
-
-

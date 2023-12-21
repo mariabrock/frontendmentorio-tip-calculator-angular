@@ -11,12 +11,12 @@
   gap: 20px;
 }
 
-.btn-reset {
-  grid-column-start: span 2;
-  background-color: var(--strong-cyan);
-  width: 325px;
-  margin-top: 5rem;
-}
+//.btn-reset {
+//  grid-column-start: span 2;
+//  background-color: var(--strong-cyan);
+//  width: 325px;
+//  margin-top: 5rem;
+//}
 
 .btn-reset:disabled {
   background-color: var(--dark-grayish-cyan);
@@ -59,7 +59,7 @@ h2 {
     padding-right: 1rem;
   }
 
-  .btn-reset {
-    margin-top: 1rem;
-  }
+  //.btn-reset {
+  //  margin-top: 1rem;
+  //}
 }

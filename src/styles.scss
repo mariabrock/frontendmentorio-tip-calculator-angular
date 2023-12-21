@@ -1,13 +1,62 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+@import "app/theme";
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$tip-calculator-primary: mat.define-palette($custom-primary, 500);
+$tip-calculator-accent: mat.define-palette($custom-accent, 500);
+
+// The warn palette is optional (defaults to red).
+$tip-calculator-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$tip-calculator-theme: mat.define-light-theme((
+  color: (
+    primary: $tip-calculator-primary,
+    accent: $tip-calculator-accent,
+    warn: $tip-calculator-warn,
+  )
+));
+
+//add mat-app-background as a class to the body tag in he index.html
+$tip-calculator-alt-theme: mat.define-dark-theme((
+  color: (
+    primary: $tip-calculator-primary,
+    accent: $tip-calculator-accent,
+    warn: $tip-calculator-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($tip-calculator-theme);
+@include mat.button-color($tip-calculator-theme);
+
 /* You can add global styles to this file, and also import other style files */
-:root {
-  --strong-cyan: hsl(172, 67%, 45%);
-  --very-dark-cyan: hsl(183, 100%, 15%);
-  --dark-grayish-cyan: hsl(186, 14%, 43%);
-  --grayish-cyan: hsl(184, 14%, 56%);
-  --light-grayish-cyan: hsl(185, 41%, 84%);
-  --very-light-grayish-cyan: hsl(189, 41%, 97%);
-  --white: hsl(0, 0%, 100%);
-}
+
+
+//:root {
+//  --strong-cyan: hsl(172, 67%, 45%); #26c0ab
+//  --very-dark-cyan: hsl(183, 100%, 15%); #00494d
+//  --dark-grayish-cyan: hsl(186, 14%, 43%);
+//  --grayish-cyan: hsl(184, 14%, 56%);
+//  --light-grayish-cyan: hsl(185, 41%, 84%);
+//  --very-light-grayish-cyan: hsl(189, 41%, 97%);
+//  --white: hsl(0, 0%, 100%);
+//}
 
 * {
   font-family: 'Space Mono', monospace;
@@ -19,19 +68,22 @@ html, body {
   margin: 0;
   padding: 0;
   font-size: 12px;
+}
+
+.container {
   background-color: var(--light-grayish-cyan);
 }
 
-button {
-  font-family: 'Space Mono', monospace;
-  border: none;
-  margin: 5px;
-  padding: 10px 15px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px;
-  transition-duration: 0.4s;
-  width: 30%;
-  cursor: pointer;
-  font-size: large;
-}
+//button {
+//  font-family: 'Space Mono', monospace;
+//  border: none;
+//  margin: 5px;
+//  padding: 10px 15px;
+//  text-align: center;
+//  text-decoration: none;
+//  border-radius: 5px;
+//  transition-duration: 0.4s;
+//  width: 30%;
+//  cursor: pointer;
+//  font-size: large;
+//}

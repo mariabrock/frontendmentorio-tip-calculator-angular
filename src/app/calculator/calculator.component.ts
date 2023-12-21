@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-calculator',
@@ -7,43 +7,54 @@ import { FormControl, FormGroup, FormBuilder, Validators } from "@angular/forms"
   styleUrls: ['./calculator.component.scss']
 })
 export class CalculatorComponent implements OnInit {
-  // totalBill: number;
-  // customTip: number;
-  // numOfPeople: number;
-  tipForm: FormGroup;
-  numberRegEx = /\-?\d*\.?\d{1,2}/;
-  active: boolean = false;
+  public tipForm: FormGroup;
+  public active: boolean = false;
 
-  @Input('total-bill') totalBill: number;
-  @Input('custom') customTip: number;
-  @Input('people-num') numOfPeople: number;
+  // @Input('totalBill') totalBill: any;
+  // @Input('customTip') customTip: any;
+  // @Input('numOfPeople') numOfPeople: any;
+  public totalBill: any = 0;
+  public customTip: any = 0;
+  public numOfPeople: any = 0;
 
-  constructor(private _formBuilder: FormBuilder) { }
+
+  constructor() { }
 
   ngOnInit(): void {
+    this.initForm();
+  }
+
+  initForm() {
     this.tipForm = new FormGroup({
-      'totalBill': new FormControl('value', [Validators.required, Validators.pattern(this.numberRegEx)]),
-      'customTip': new FormControl('value', [Validators.required]),
-      'numOfPeople': new FormControl('value', [Validators.required]),
+      'totalBill': new FormControl<number[]>([] as number[], [Validators.required]),
+      'customTip': new FormControl<number[]>([] as number[], [Validators.required]),
+      'numOfPeople': new FormControl<number[]>([] as number[], [Validators.required]),
     });
   }
 
-  calculateBill() {
-    console.log(this.totalBill);
+  calculateBill(event: Event) {
+    // if(this.totalBill.valueOf !== null) {
+    //   let value = this.totalBill.valueOf;
+    //   let tipAmount =
+    //   value * tipAmount
+    // }
+    console.log((event.target as HTMLTextAreaElement).value);
+    return((event.target as HTMLTextAreaElement).value);
   }
 
-  calculatePeople() {
-    console.log(this.numOfPeople);
+  calculatePeople(event: Event) {
+    console.log((event.target as HTMLTextAreaElement).value);
+    return((event.target as HTMLTextAreaElement).value);
   }
 
   calculateTip(customTip: number) {
-    console.log(this.customTip);
+    console.log(customTip);
+
   }
 
 
 
 // to do:
-// can I fix the input text font?
 // show tip amount and total per person
 // disable reset button unless both inputs have a number in them
 

@@ -22,18 +22,19 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: stretch;
+  justify-content: center;
 }
 
-.btn-tip {
-  background-color: var(--very-dark-cyan);
-  color: var(--white);
-}
+//.btn-tip {
+//  border-radius: 10px;
+//  background-color: var(--very-dark-cyan);
+//  color: var(--white);
+//}
 
-.btn-tip:hover {
-  background-color: var(--strong-cyan);
-  color: var(--very-dark-cyan);
-}
+//.btn-tip:hover {
+//  background-color: var(--strong-cyan);
+//  color: var(--very-dark-cyan);
+//}
 
 #custom {
   background-color: var(--very-light-grayish-cyan);
@@ -94,4 +95,11 @@ h2 {
 .active {
   background-color: var(--strong-cyan);
   color: var(--very-dark-cyan);
+}
+
+.input--custom {
+  border-radius: 10px;
+  width: 7rem;
+  height: 2rem;
+  margin: .5rem;
 }
